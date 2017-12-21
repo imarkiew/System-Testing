@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-rm -r PyResults/*
+if [ "$(ls -A PyResults)" ];
+    then rm -r PyResults/*
+fi

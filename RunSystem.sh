@@ -24,4 +24,3 @@ $Py_interpreter -m PyFiles.FindFinalPyStats $directory_path
 $Py_interpreter -m PyFiles.FindFinalRStats $directory_path
 ./ClearPyResults.sh
 ./ClearRResults.sh
-

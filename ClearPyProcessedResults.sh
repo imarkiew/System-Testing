@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
-rm -r PyProcessedResults/*
+if [ "$(ls -A PyProcessedResults)" ];
+    then rm -r PyProcessedResults/*
+fi
+

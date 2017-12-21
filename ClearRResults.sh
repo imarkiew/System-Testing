@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-rm -r RResults/*
+if [ "$(ls -A RResults)" ];
+    then rm -r RResults/*
+fi
