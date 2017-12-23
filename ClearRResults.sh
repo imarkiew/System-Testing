@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
-if [ "$(ls -A RResults)" ];
-    then rm -r RResults/*
-fi
+find RResults -maxdepth 1 -type f ! -iname '\.gitkeep' -delete

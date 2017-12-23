@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-if [ "$(ls -A PyProcessedResults)" ];
-    then rm -r PyProcessedResults/*
-fi
+find PyProcessedResults -maxdepth 1 -type f ! -iname '\.gitkeep' -delete
 
