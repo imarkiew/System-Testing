@@ -5,7 +5,7 @@ from math import sqrt
 from matplotlib import pyplot as plt
 from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import cohen_kappa_score
-from PyFiles import FuzzyAlgorithms
+from PyFiles import FuzzyAlgorithm
 
 def find_categories(y):
     return list(set(y))
@@ -98,14 +98,14 @@ def CKS(y_1, y_2):
 
 def run_test(Xx, Xt, yy, yt, absolute_path):
     path = absolute_path + "/PyResults/"
-    parameters_and_categories, train_errors, test_errors = FuzzyAlgorithms.learn_system(Xx, yy, Xt, yt)
+    parameters_and_categories, train_errors, test_errors = FuzzyAlgorithm.learn_system(Xx, yy, Xt, yt)
     predictions = [
-        FuzzyAlgorithms.run_system(Xx, [[rule[0][i], rule[1], rule[2], rule[3]] for rule in parameters_and_categories])
+        FuzzyAlgorithm.run_system(Xx, [[rule[0][i], rule[1], rule[2], rule[3]] for rule in parameters_and_categories])
         for i in range(len(parameters_and_categories[0][0]))]
     train_accuracies_for_epochs = [accuracy(predicion, yy) for predicion in predictions]
     train_scores_for_epochs = [CKS(predicion, yy) for predicion in predictions]
     predictions = [
-        FuzzyAlgorithms.run_system(Xt, [[rule[0][i], rule[1], rule[2], rule[3]] for rule in parameters_and_categories])
+        FuzzyAlgorithm.run_system(Xt, [[rule[0][i], rule[1], rule[2], rule[3]] for rule in parameters_and_categories])
         for i in range(len(parameters_and_categories[0][0]))]
     test_accuracies_for_epochs = [accuracy(predicion, yt) for predicion in predictions]
     test_scores_for_epochs = [CKS(predicion, yt) for predicion in predictions]
