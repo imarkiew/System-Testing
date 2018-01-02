@@ -45,7 +45,7 @@ def update_loss_of_indyvidual(indyvidual, X, y_bin, min, max, offspring, hof, is
         hof.update(offspring)
     return rmse
 
-def run_genetic_algorithm(X, train_y_bin, Xt, test_y_bin, train_min, train_max, cxpb, mutpb, start_population_size,
+def run_evolution_strategy(X, train_y_bin, Xt, test_y_bin, train_min, train_max, cxpb, mutpb, start_population_size,
                                                 size_of_offspring, number_of_epochs):
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
     creator.create("Individual", list, fitness=creator.FitnessMin)
